@@ -1,6 +1,8 @@
 package liga.medical.messageanalyzer.core.service;
 
-import liga.medical.messageanalyzer.dto.rabbit.RabbitMessageDto;
+import liga.medical.commonmodule.dto.rabbit.RabbitMessageDto;
+import liga.medical.commonmodule.service.annotation.DBLog;
+import liga.medical.messageanalyzer.api.service.MessageSenderService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -17,7 +19,9 @@ public class MessageSenderServiceImpl implements MessageSenderService {
     private String queue;
 
     @Override
+    @DBLog
     public void sendMessage(RabbitMessageDto messageDto) {
         template.convertAndSend(queue, messageDto);
     }
+
 }

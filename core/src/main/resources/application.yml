@@ -3,8 +3,33 @@ server:
 
 spring:
   rabbitmq:
-    host: "rabbit"
+    host: "localhost"
     port: 5672
+
+  sql:
+    init:
+      platform: postgresql
+  datasource:
+
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL82Dialect
+    hibernate:
+      ddl-auto: none
+    sql:
+      init:
+        mode: always
+
+  application:
+    name: message-analyzer
+
+  zipkin:
+    enabled: ${ZIPKIN_MODE:false}
 
 rabbit:
   queue:

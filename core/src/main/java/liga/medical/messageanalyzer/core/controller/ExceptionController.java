@@ -1,7 +1,7 @@
 package liga.medical.messageanalyzer.core.controller;
 
+import liga.medical.commonmodule.dto.body.ResponseBody;
 import liga.medical.messageanalyzer.core.exception.RabbitTypeException;
-import liga.medical.messageanalyzer.dto.response.ResponseBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -26,4 +26,5 @@ public class ExceptionController {
                 exception.getBindingResult().getFieldError().getDefaultMessage()
         ));
     }
+
 }
