@@ -41,7 +41,7 @@ public class LoggerAdvice {
 
         LogDto logDto = new LogDto(
                 getTraceId(),
-                SystemType.MESSAGE_ANALYZER.name(),
+                SystemType.MESSAGE_ANALYZER,
                 String.format("%s.%s(%s)",
                         className,
                         method,
